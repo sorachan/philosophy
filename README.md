@@ -1,6 +1,6 @@
 # what is the meaning of life and what *is* life, anyway? a mathematical approach
 
-## a philosophical essay by a mathematician / computer scientist / rock drummer on the limits of binary logic and decision trees, the basic concepts of truth and trust, the mathematical meaning of paradoxa, what the terms "death" and "eternal youth" means to me, why anything can be a religion, why surrender is never an option in life and why I'd choose touring with a small band over a career in academia in a heartbeat
+## a philosophical essay by a mathematician / computer scientist / rock drummer on the limits of binary logic and decision trees, the basic concepts of truth and trust, the mathematical meaning of paradoxa, what the terms "death" and "eternal youth" mean to me, why anything can be a religion, why surrender is never an option in life and why I'd choose touring with a small band over a career in academia in a heartbeat
 
 ### foreword
 
