@@ -202,7 +202,7 @@
             * my body functions are perfectly normal, if anyone from medicine wants to take my values and do a health check-up, have at it!
         * I still believe life arose from evolution and that the Adam and Eve story about an almighty maker in the sky is just the best explanation that people could come up with at the time when science was less advanced
         * what happened before the big bang and if the big bang theory is even valid, I don't know, I know too little about physics to really comment on that, I'll leave that one to the experts
-            * but I do believe that the whole theoretical mess around the concept of time, the speed of light, the discussion of discrete vs continuous 
+            * but I do believe that the whole theoretical mess around the concept of time, the speed of light, the discussion of discrete vs continuous is going to be much simpler 
         * my personal guess for the answer to *many* unsolved problems in science is: everything is a spectrum
             * classical physics and quantum mechanics were good but incomplete approximations (Johnson-Lindenstrauss lemma!)
             * "$P=NP$ or $P\neq NP$" is the wrong question, the answer is: both / unsolvable / doesn't really matter
