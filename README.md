@@ -1,6 +1,6 @@
 # what is the meaning of life and what *is* life, anyway? a mathematical approach
 
-## a philosophical essay by a mathematician / computer scientist / rock drummer on the limits of binary logic and decision trees, the basic concepts of truth and trust, the mathematical meaning of paradoxa, what the terms "death" and "eternal youth" means to me, why anything can be a religion, why surrender is never an option in life and why I'd choose touring with a small band over a career in academia in a heartbeat
+## a philosophical essay by a mathematician / computer scientist / rock drummer on the limits of binary logic and decision trees, the basic concepts of truth and trust, the mathematical meaning of paradoxa, what the terms "death" and "eternal youth" mean to me, why anything can be a religion, why surrender is never an option in life and why I'd choose touring with a small band over a career in academia in a heartbeat
 
 ### foreword
 
@@ -202,7 +202,7 @@
             * my body functions are perfectly normal, if anyone from medicine wants to take my values and do a health check-up, have at it!
         * I still believe life arose from evolution and that the Adam and Eve story about an almighty maker in the sky is just the best explanation that people could come up with at the time when science was less advanced
         * what happened before the big bang and if the big bang theory is even valid, I don't know, I know too little about physics to really comment on that, I'll leave that one to the experts
-            * but I do believe that the whole theoretical mess around the concept of time, the speed of light, the discussion of discrete vs continuous 
+            * but I do believe that the whole theoretical mess around the concept of time, the speed of light, the discussion of discrete vs continuous is going to be much simpler 
         * my personal guess for the answer to *many* unsolved problems in science is: everything is a spectrum
             * classical physics and quantum mechanics were good but incomplete approximations (Johnson-Lindenstrauss lemma!)
             * "$P=NP$ or $P\neq NP$" is the wrong question, the answer is: both / unsolvable / doesn't really matter
@@ -468,7 +468,7 @@
     * that reminds me, I have once read about *Nontheist Quakers*, descendants of the religious group who fled persecution in England and colonised the US who still believe in the value of church for its role in society, but not in the big man in the sky himself
     * whatever part of religion is used to justify sexism, homophobia, transphobia, supremacy ideologies or other forms of segregation, separation and bigotry, that's what we need to get rid of and was never what the prophets advocated for
     * my personal view on prophets is that they were regular people like me and you who had stumbled upon the same fundamental truths about life and tried to share them with their community and do good in general but we all know that people never listen and how the Jesus story ended, I do not believe that Jesus was the *one and only* son of God but that we all are children of whatever God we choose to believe in and that Jesus was a regular guy like you and me who had stuff in life figured out and was eager to share his life lessons but misunderstood by the people of his time and made into an idol and started to put Jesus as a person over his moral teachings, even though that's completely contrary to what he tried to tell us
-    * the immaculate conception on the other hand, I believe, is a load of bullcrap. we all know how human pregnancy works and there's a male sperm cell and a female ovary cell in
+    * the immaculate conception on the other hand, I believe, is a load of bullcrap. we all know how human pregnancy works and there's a male sperm cell and a female ovary cell involved, but who knows, maybe Mary had some odd genetic mutation that allowed her to self-propagate? I can't know, but I don't really care either
 * always liked the philosophy of *discordianism* as well:
     * take a pope card. you're a discordian pope now.
     * they use a calendar with 5 seasons of 73 days and dates always correspond to the same of the 5 weekdays.
