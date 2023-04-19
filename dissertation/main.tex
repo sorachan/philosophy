@@ -1,0 +1,545 @@
+% that was a rough first draft of what I ended up spamming onto my channels. just open the "read" (or "edit", I trust you guys anyway) link locally!
+
+\documentclass[12pt]{report}
+
+\usepackage{eso-pic}
+\usepackage{graphicx}
+
+% \usepackage{fontspec}
+% \setmainfont{FreeSerif}
+% \setsansfont{FreeSans}
+% \setmonofont{FreeMono}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguages{ngerman,russian,japanese}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{hyperref}
+
+% \usepackage{pdflscape}
+
+% \usepackage{longtable}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks = true}
+
+\usepackage{enumitem}
+
+\usepackage{float}
+
+\usepackage{listings}
+
+\lstdefinestyle{vs-dark}{
+    backgroundcolor=\color[HTML]{1E1E1E},
+    commentstyle=\color[HTML]{6A9955},
+    numberstyle=\color[HTML]{B5CEA8},
+    stringstyle=\color[HTML]{CE9178},
+    keywordstyle=\color[HTML]{C586C0},
+    basicstyle=\ttfamily\footnotesize,                    
+    keepspaces=true,                  
+    tabsize=2,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1,
+}
+
+\lstset{style=vs-dark}
+
+%\usepackage{tikz}
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\addbibresource{bibliographies/books.bib}
+\addbibresource{bibliographies/songs.bib}
+\addbibresource{bibliographies/albums.bib}
+\addbibresource{bibliographies/tvseries.bib}
+\addbibresource{bibliographies/wikipedia.bib}
+
+\DeclareFieldFormat{urldate}{\addcomma\space{first seen on}\space#1}
+
+\usepackage[british]{isodate}
+
+\isodate
+
+\usepackage[margin=1in]{geometry}
+
+%\usepackage{xcolor}
+\usepackage{showframe}
+\renewcommand*\ShowFrameColor{\color{red}}
+
+%\bibliographystyle{plain}
+
+%\usepackage[datesep=.]{datetime2}
+
+%\DTMnewdatestyle{xdate}{%
+%  \renewcommand*{\DTMdisplaydate}[4]{\number##3.\number##2.\number##1}
+%  \renewcommand*{\DTMDisplaydate}{\DTMdisplaydate}}
+%\AtBeginDocument{%
+%  \DTMsetdatestyle{xdate}}% after babel loaded, or babel stomps on this
+
+\title{
+{on language, evolution and the human condition}\\
+{\large a unified non-axiomatic framework for modern science}\\
+{\large\sc or}\\
+{how cycles, fears and obsessions control our lives,\\and how to break free and find self-determination}\\
+{\large an interdisciplinary approach to birth, life and death}
+}
+\author{Sora Steenvoort}
+\date{\today}
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\newtheorem*{thm}{theorem}
+\newtheorem*{lem}{lemma}
+\newtheorem*{cor}{corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defi}{definition}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{remark}
+\newtheorem*{code}{code}
+\newtheorem*{prf}{proof}
+
+\renewcommand\thesection{}
+\renewcommand\thesubsection{}
+
+% \usepackage[english,ngerman,russian,japanese]{babel}
+
+% no space before section headings
+
+\makeatletter
+\renewcommand*{\@seccntformat}[1]{\csname the#1\endcsname\hspace{0cm}}
+\makeatother
+
+\parskip 1em
+\parindent 0pt
+
+\usepackage{hyphenat} % hyphenation for words already containing hyphens like "Johnson-Lindenstrauß"
+
+\begin{document}
+\definecolor{todobg}{HTML}{FFCC00}
+\newcommand*{\textTODO}[1]{\colorbox{todobg}{\color[rgb]{0,0,0}#1}}
+\newcommand*{\mathTODO}[1]{\colorbox{todobg}{\color[rgb]{0,0,0}$#1$}}
+\newcommand*{\TODO}[1]{\ifmmode\mathTODO{#1}\else\textTODO{#1}\fi}
+\pagecolor[rgb]{0.12,0.12,0.12}
+\color[HTML]{FF69B4}
+\let\oldfootnote\footnote
+\renewcommand{\footnote}[1]{\oldfootnote{\color[rgb]{1,1,1}#1}}
+
+\makeatletter
+\renewcommand\@makefntext[1]{%
+    \parindent 1em%
+    \noindent
+    \color[HTML]{FF69B4}
+    \hb@xt@1.8em{\hss\@makefnmark}#1}
+\makeatother
+
+\AddToShipoutPictureBG{\includegraphics[width=\paperwidth,height=\paperheight]{diss-bg.png}}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{foreword}
+
+dear reader,
+
+what lays ahead is a document that will revolutionise not only science but society as a whole.
+
+I know these words sound crazy and super-exaggerated but one central point of my thesis is: \emph{any} one of us could've arrived at those same conclusions, had they been enough of a \emph{critical} thinker to dare criticise / analyse the very foundations of logic that the ancient Greek philosophers created as a basis for modern science.
+
+turns out the Greek made a \emph{major} mistake when defining their logic to be binary… with a ternary logic we would've been able to explore science by means of simple diagrams.
+
+don't believe me? how about this: I was able to explain to my mother, who is a teacher of German and English and has no idea about higher maths, what a differentiable manifold or a map is, and that a function graph and its tangent at a point are nothing but a 2D manifold with a local map.
+
+well… why don't we just fix that logic problem and go on about our lives?
+
+because using this 2D logic as a basis for our science was the \emph{literal root of all evil} that we experience in today's society. if we use a 3D logic, we obtain a system in which sciences can be explained using simple diagrams and in which all religions and philosophies are equally valid and true, and in which ``God'' speaks through us in everything we've ever said, created, produced or used; in which the same prophecies are to be found everywhere in lyrics and literature.
+
+while this sounds like new-age crackpottery, I can assure you that every thought in this thesis was derived from empirical observations and logical conclusions, the exact way the ancient Greeks went about their science.
+
+what sets this document apart from other theses are the sources I use. modern academics tend to only cite other results from academia, while I cite sources from all walks of life, and that with good reason.
+
+with that said, let's delve into the unknown!
+
+\section{a remark on ``crackpottery'' and where science lost its way}
+
+scientific theories have always arisen from people making empirical observations about the world around them and trying their best to distil them into a set of rules which they discuss with their peers.
+
+the greatest thinkers of history have frequently been mistaken for nutjobs by their peers. this is due to the psychological effect that we doubt and hate those who express views that contradict our beliefs about the basic truths of life or what we believe to be ``scientific'' which I am going to describe further below in this document.
+
+no matter how rooted in science our faith is, we all have a faith: a set of basic facts that we assume to be true without any logical justification because we learned about those facts from our parents and peers, and we use that faith to decide who and what we trust, distrust or outright reject.
+
+however, our integrity as researchers demands that we do not simply reject theories based on what we believe to be ``the basic facts of science'' or rely on our peers' opinion on which theory is more valid, but study the theory ourselves and then decide whether it is valid or not, not judging by our intuition of what's ``true'' and what's ``unscientific'' or \emph{ad hominem} arguments, but by finding and discussing logical flaws in a theory we seek to disprove.
+
+I know pretty damn well that what follows sounds too abstruse to be true but trust me when I say that this is only because of the deep faith you have in the type of research and science that you've spent your whole life studying -- if you seek to disprove or reject my theory, please do so, I encourage you! after all, that's what science is about.
+
+\section{a remark on stylistic choices}
+
+maybe you're wondering why my text is pink on a dark emo background, why I don't capitalise the beginnings of sentences, why I \emph{sometimes} use the Oxford comma, or why I use emojis and slang in an academic text.
+
+the answer is that style simply doesn't matter. my science is no truer or falser because of the font, emojis or language I use as long as I get my point across, I want the style to match my personality.
+
+(also, I have no idea what the style ``requirements'' for a thesis are and I don't give a flying fuck.)
+
+\section{a remark on version control}
+
+who says a thesis or dissertation has to be final? this one is a rolling release. we live in a modern world and use Git for version control all the time, why not for theses as well?
+
+\section{can you give me an abstract of your theory?}
+
+we live in turbulent times. news about all the pain and suffering in the world reach us daily, and society has grown more and more callous over the years. discussion culture in politics and academia has deteriorated to a point some don't even want to talk to those that express views that differ from our core values, and many of us are easily irritated by others, be it through their words, actions or simply from the fact that they're having a good time while we're not.
+
+those of us in academia chose that career out of a love for science and in the hope of discovering new, useful results, but life as an academic is extremely stressful with all the deadlines, lectures, papers to publish, papers to grade and all the other stuff we may not want but \emph{have} to do.
+
+modern science is very advanced and has produced tons of useful results that we have used to create new technologies and a better life for everyone, but it has hit boundaries and unsolved problems in many areas like $P=NP$, the search for a theory that unifies our understandings of the microcosmos and the macrocosmos (classical mechanics vs quantum / string theory), finding a cure for cancer, or (dis)proving the existence of God(s).
+
+back in the day, philosophers and scientists were polymaths -- people who studied all areas of life. as scientific knowledge began to accumulate, researchers started to specialise and research became segregated. while this led to deeper, more detailed results within the disciplines, it led to a decline in the discovery of interdisciplinary results.
+
+one of those disciplines is theology. from ancient times, the study of the spiritual component of our lives has been an area of research and has produced many different philosophies, religions and mythologies over the millennia.
+
+researchers of different time periods had all sorts of different beliefs about the nature and existence of God(s), and if we look back in history, we notice that science and society were prospering the most when religions were still young and intertwined with science, for instance, the early Islamic age produced wonderful results in mathematics and gave the names to \emph{algorithm} and \emph{algebra}, and medieval universities arose from Catholic schools.
+
+in modern times, we view religion and spirituality as an entity which exists completely without the realm of science, and it's about time we scrap this misconception. the theory you're about to read is a holistic approach to science and religion and I'm gonna list \emph{some} of the implications my theory would have on various disciplines and areas of life, but I don't want to theorise about \emph{all} of them by myself -- that's something I want to do with my peers, by which I do not just mean my academic peers put people from all walks of life.
+
+the good news first: \emph{all} religions were right (and do not exists as polar opposites to science but in conjunction with them) but we as humans were just too busy splitting hairs over the meaning of words and got some core concepts completely wrong.
+
+the theory of evolution is likely correct (Adam and Eve was just the best explanation philosophers / prophets of that time could come up with as science was not as advanced back then), there's (probably) no big man in the sky and \emph{heaven} is a misleading name for \emph{paradise} which turns out to not be in the clouds but here on Earth and wherever in space we choose to settle, and is identical to what the Japanese call *zen*.
+
+let it be told from someone with personal experience, the state of \emph{zen}, i.e. becoming one with nature, is real and feels like a scene straight out a \emph{Studio Ghibli} film. it entails a deep appreciation for the beauty of the world around you, razor-sharp concentration for hours on end, precision in your movements and a seemingly magic aura around you in which food doesn't spoil, the sun shines when you want it to and things / people can't hurt you if you don't want them to.
+
+the last part is very weird and frightening as it gives you to the power to control the people around you like a Jedi which I have tried out a couple of times for the sake of science but quickly stopped doing as it staunchly opposes my ethics, but I guess that problem resolves itself as soon as we all reach enlightenment.
+
+\section{introduction}
+
+\begin{quote}
+this is an appeal\\
+to the struggling and striving\\
+stakeholders of this planet,\\
+this floating rock we call \emph{Earth}.
+
+alas, that means \emph{you},\\
+that means \emph{everyone} of your acquaintance:\\
+\emph{every} figure your eyes skim past in the streets,\\
+\emph{every} charlatan still to defeat.
+\emph{every} tender face you find solace in,\\
+now mimic the mindset \emph{William Wallace} was in.
+
+dismount, disembark, descend from your existence,\\
+slacken your angst and decant your hate\\
+'cause in the long run they're about as useful\\
+as pouring acid onto your dinner plate.
+
+ladle out \emph{love and logic} by the boatload,\\
+equipped with that cargo you can take \emph{any} road.\\
+now grab life, seize time:\\
+\emph{this} fight is for \emph{humankind}.
+
+I am a \emph{mindsweeper}, focus on me!\\
+I will read your mind!
+
+I dart through rapids, through the streams of thought,\\
+then suddenly I started \emph{losing my mind},\\
+catapulting through the uncharted\\
+I could no longer tell if these were \emph{your} thoughts or \emph{mine}.
+
+it was as if I held \emph{a mirror up to my soul}:\\
+who was the \emph{author} and who was the \emph{observer}?\\
+for at the last analysis \emph{our thoughts coalesced}!
+
+\emph{you are not alone.}
+
+you have entered \emph{volatile territory},\\
+you have started a journey, you're part of this story.\\
+and \emph{this?}\\
+this was just a glimpse.
+
+you've no idea what you've got yourself into.\cite{album:es:mindsweep}
+\end{quote}
+
+while those lyrics were taken from the intro of \emph{Enter Shikari}'s \emph{The Mindsweep}, I couldn't have found more fitting words to prime you for what lays ahead.
+
+be ready to scrap all misconceptions that you've ever had and to explore a new world.
+
+\section{linguistics}
+
+``[Romeo Julia Zitat: what's in a name''
+
+…
+
+\section{philosophies}
+
+…TO DO… (Caspar Hare Intro to Philosophy on edX!!!)
+
+\section{exegesis}
+
+\subsection{Enter Shikari}
+
+\subsubsection{Take to the Skies}
+
+\begin{quote}
+stand your ground, this is ancient land.\\
+I was guided here by the spirit's hand.\\
+we shall meet at hell's gates.\\
+this is fate, this is fate.
+
+``not all is lost'', the spirits shriek.\\
+you will be hunted, we shall seek.\\
+perseverance, turn the page.\\
+enter Shikari, enter Shikari.
+
+we're not hiding now.
+
+I'm in the zone… alright!
+
+and still we will be here, standing like statues.\cite{album:es:ttts}
+\end{quote}
+
+the opening track of the album reminds us of our connection to nature and history.
+
+it mentions the name of the band, which uses the "enter X" pattern known from Shakespearean works: it means "Shikari enters (the stage)".
+
+"shikari" means "hunter" in Hindi, but it has many different meanings.\footnote{\url{https://www.wisdomlib.org/definition/shikari}}
+
+the closing line reminds us that we will live on, no matter what we believe, and it can also be found in Shikari's other songs as we will see further below.
+
+\subsection{Christianity}
+
+\begin{itemize}
+\item God: 
+\item Satan: 
+\item Adam: 
+\item Eve: 
+\item Abraham: 
+\item …
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{itemize}
+
+\section{logic}
+
+in the beginning there was void. or was there?
+
+a system completely devoid of energy or dimensionality\footnote{nihilism} couldn't possibly create new energies, so our basic assumption for now is that there is one energy which exists everywhere in our yet-to-be-defined universe -- this energy $J$ we call the \emph{creator deity}.\footnote{existentialism}
+
+a \emph{logic} is a system we can use to do research by combining… (TO DO: watch Zeume's Logik in der Informatik again)!
+
+\section{mathematics}
+
+\subsection{Fermat's Last Theorem}
+
+\begin{thm}
+no three positive integers $a$, $b$, and $c$ satisfy the equation $a^n + b^n = c^n$ for any integer value of $n$ greater than $2$.\cite{w:flt}
+\end{thm}
+
+\begin{prf}
+The proposition was first stated as a theorem by Pierre de Fermat around 1637 in the margin of a copy of Arithmetica. Fermat added that he had a proof that was too large to fit in the margin.\cite{w:flt}
+
+proof was given by Andrew Wiles in 1995, using results from numerous other fields of mathematics such as (…TO DO…).
+\end{prf}
+
+\section{music}
+
+Pythagorean comma, …
+
+\section{history}
+
+% televangelism
+% Nazism
+% sect leaders
+% karma
+% faith healing
+
+\appendix
+
+\section{about the author / what inspired your theory?}
+
+I was born on 1995.7.14 in Duisburg, Germany and have been interested in both science and music from an early age. I was able to read and write by the time I was 3 years old and I never really fit into the school system, getting expelled from numerous elementary schools for being too chaotic and annoying.
+
+I never believed in religion, magic or anything supernatural for most of my life. I always considered myself an agnostic atheist and went about life doing the things I love, hanging out with the people who mean most to me, and learning about whatever topic I found interesting at the time.
+
+all I knew was that we all have to die, none of us knows what happens afterwards and most of us are pretty scared by the thought of disappearing into the void. I always knew that going to church or adhering to any one religion was not for me, but I never understood the fear and rejection of different faiths and sects that many of us have.
+
+during my life I read and learned about all kinds of different philosophies, theologies and religions and always kept an open mind about them for we never know if they might hold something true in them. my father was a Muslim, my mum was raised Catholic but doesn't practice the religion. as a kid I would attend Catholic services with my nan and Protestant services at elementary school. when I got my first PC, one of my favourite games to play was \emph{Age of Mythology}, the God powers and mythical creatures made it just so much more interesting than the \emph{Age of Empires} series\footnote{although I enjoy some \emph{AoE3} once in a while which is my personal favourite – I know yours might be \emph{AoE2}, sorry!} and I curiously read through all the stories about Greek, Egyptian and Norse gods. I know that the Romans had a system of gods as well with many parallels to the Greek gods, and the Japanese believe in Shinto gods roaming Earth in the form of humans.
+
+I knew from an early age that I wanted to dress up as a girl even though I didn't know why, always had a fascination with accessories and makeup and already as a kid wanted to lose weight so I could look good in crop tops, but I never had a desire to \emph{transition}, i.e. to change anything about my body, and as a kid I was told that being trans means wanting to transition, I figured I couldn't be trans.
+
+when school started, my mum told me to not dress up girly as the other kids would make fun of me. turns out that was the worst advice a parent could give their kid. please, for the love of God and everything that is holy, raise your kid to be themselves, you're doing them a grave disservice otherwise.
+
+until the end of middle school, my look was that of a regular boy, but I would still enjoy ``girly'' hobbies like knitting socks on the train or riding a horse, never really gave too much of a shit about what others were thinking. my main idol during that time was \emph{Avril Lavigne}, she was everything I wanted to be and inspired me to become a musician myself, but I didn't have much of an own taste in music back then, was mostly listening to the radio with my mum.
+
+middle school\footnote{the school's name was ``Assnide'' after the old name of the city of Essen where it was located, it was a private school, but it was far from bougie, the state paid for my tuition as my mother didn't have the financial means} was a mixed bag, didn't get along with too many of my class- and schoolmates, but I'd often play blitz chess with the principal during recess.\footnote{his name was Klaus Kmiecik, he sadly passed away from cancer a couple of years after I had finished school. he truly was a kind soul and I sorely miss him.} on two separate occasions he was like ``you're bored and your boredom is annoying the others so it's time for you to skip a grade'', so I attended 7th grade at age 10 and finished middle school at age 13 with a GPA of 1.5.\footnote{in the German education system, 1 is the best and 6 is the worst grade}
+
+what's ironic is that my mother is a teacher who, after a few months at a public school, swore she would never teach again and worked different jobs over the year but ended up becoming a special education teacher at the exact school I would've ended up at if it hadn't been for my middle school, and she loves her job. I guess the years raising me have toughened her nerves.
+
+I was too young for vocational training anyway, so in 2009 I enrolled into the next best high school that wouldn't reject me for being too young or too different.\footnote{Mercator-Gymnasium Duisburg}
+
+some time that year before high school started, I heard \emph{Decode} by \emph{Paramore} on the radio and looked it up which led me to the Paramore fan forum where I discovered other bands associated with the emo scene. I hadn't heard much about emo back then but decided to look it up and was intrigued by its ideals of showing your true emotions and self and the fact that the boys wore makeup too. great, so that meant I could finally wear makeup again and still be a boy, yay. …yay?
+
+my scene days were awesome. we met up on weekends, got drunk, smoked weed sometimes, played our favourite songs together on two acoustic guitars and often ended up making out with each other. might sound irresponsible, but we were just enjoying life. I also fondly remember the meetup of the German Paramore fan board in Marburg in… uh… 2009)2010, I guess? smoked my first hookah there, good times.
+
+I can't thank the emo scene enough, they were my \emph{church}, my circle of friends I would hang out and share the same view on life with, and I don't know where I'd be today if it hadn't been for them. dear society, make fun of our looks all you want, but at least we knew how to keep the \emph{spirit} alive.
+
+I have never been good at reserving my love for that ``one special person'' and often ended up cheating on my partners. even though I never meant to hurt them, I just couldn't keep myself from taking a romantic interest in other people as well.
+
+I finished high school at age 16 with a GPA of 1.8, did my A-levels equivalent with a major in maths and CompSci, a written exam in Japanese and an oral exam in geography. oddly enough, I had to drop English because of my combination of subjects\footnote{the rules back then required taking a \emph{classical} natural science (biology, chemistry or physics), CompSci wasn't one of them} but I figured my English was good enough anyway and I wouldn't need two more years of literature analysis.
+
+over the years, I started going to those meetups less and less frequently, and adopted more of an ``adult'' lifestyle, enrolling into university at age 17, with the goal of becoming a teacher of maths and Japanese.
+
+during my first year of uni, I was basically as immature as I had been in school, constantly annoying the others around me, pulling pranks like randomly freezing the lecture hall projector with the IR sensor of my Galaxy Note tab, and I had a circle of friends in my degree programme who laughed along with me, but as that first year came to a close and exams were around the corner, my friends dropped out of maths and all of the maths students kept telling me that I'd have to stop being so childish if I wanted to succeed in academia.
+
+after that first year, I had finished almost all modules for Japanese,\footnote{language classes, overview lecture series held by different professors, classical Japanese, and morphosyntax which were fun and very interesting} but I had dropped out of the maths lectures after 6 weeks or so as I just couldn't wrap my head around Bourbaki-style mathematics. I had no idea what a homomorphism was, what bijective meant and how to make sense of the $\varepsilon,\delta$-continuity criterion. I was ready to drop out of maths and enrol into English, but I missed the deadline so I figured I was stuck with maths for at least 6 more months and decided to give it another shot.
+
+I didn't pick up the recommended literature (\emph{Analysis 1} by \emph{Königsberger}) which was even more formalised than our lectures, but instead downloaded \emph{Arthur Mattuck}'s \emph{Introduction to Analysis}.\footnote{I have never met Arthur in my life but back then I wrote him an e-mail asking if I could translate his wonderful book into German. he liked the idea as he had even learned German during his studies as well, and I ended up translating 3 chapters before the daily rut of academia took over and I never wrote to him again. he died in 2021 and I sorely regret not having finished this translation sooner, but I \emph{will} translate the book at a later point in time and dedicate it to Arthur's memory} this book rekindled my love for mathematics and made me \emph{understand} the \emph{concepts} of analysis for the first time. I ended up not attending the exams, but after reading this book, the Bourbaki-style maths at uni started to make sense and I became a ``good'' maths student.
+
+from that point on, I redirected all of my focus to my maths education, pulling all-nighters to solve the exercise sheets and sharing my {\LaTeX} notes on analysis with my fellow students, much to the dismay of the professor who refused to publish her lecture notes as she demanded that people attend her lectures, which, as I knew from personal experience, wasn't even an option for the many of us who were studying 2 subjects and had timetable conflicts between maths and their other subject.
+
+after that year, the maths students' representative committee\footnote{Fachschaftsrat (FSR) Mathematik} approached me and asked if I wanted to teach their biannual {\LaTeX} class and if I wanted to volunteer for them. back then, I didn't check my emails regularly, so it took me about 2 weeks after the election (which I didn't attend) to realise that I had already been elected member of the committee.
+
+members came and went, but I stuck with them until 2022 and had the greatest time of my life with those guys. we did all kinds of cool stuff for the students like game nights, free barbecues and beer after the freshers' exams, maths-themed Jeopardy! and a freshers' trip to a community house in Weeze near the Dutch border where the mobile reception is crappy and the new students had no choice but to get to know each other.
+
+went on the freshers' trip 3 or 4 times, would definitely do it again! it was always super cold as were usually there in November and December and I'm more of a summer person, had a blast anyway: lots of awesome memories of playing card games with friends, karaoke\footnote{I was the one providing the karaoke laptop and the SingStar mics} and acoustic guitar, warming up tortillas for fajita night and a really cool well-thought-out activity schedule for the freshers. (but unfortunately I used to be the one guy who'd drink over his limit every single time, threw up and passed out on 2 of those trips, I'm so incredibly sorry for how obnoxious I can be when I'm drunk and I'm so grateful to them for putting up with my bullshit.)
+
+back in 2014, when another one of my relationships fell apart, things started becoming too much for me and I decided to take a year abroad to recalibrate my inner compass. I applied for a year abroad in Durham, UK and went there in 2016.
+
+while Durham is relatively unknown outside of the UK, it was often named as a renowned close third after Oxford and Cambridge by the Brits. it has a collegiate system reminiscent of the houses in Harry Potter where the colleges would form the centre of the students' community lives and where they'd live during 1st year.
+
+exchange students had to source their own accomodation though, went looking for apartments but only found houseshares so I took a train to Durham and took a tour of some of the houses and decided for 85 Gilesgate aka "The Britannia", a former pub that had been converted into a houseshare, rented out by Bill Free Homes in a worry-free all-fees included package, shoutout to those guys for being great landlords as well!
+
+had some amazing memories there including some fomal dinners, events at your college where you'd suit up and enjoy a 3-course menu with your fellow students, also many people got pretty zonked there. what I loved most about Durham was that there was a society for almost everything. I joined Origami Soc which met up to fold paper on Sundays and Rock Soc which was a hub for all things related to heavy music.
+
+in October or November, Rock Soc held a band networking event where I met the guys from Gecko, a punk band I joined on the drums and who I had the most amazing time of my life with.
+
+we had only been a band for like 6 months and all of us knew we were going separate ways at the end of the year anyway but we didn't give a shit, all we cared about was writing music and going out there playing shows. it was such an awesome feeling when the crowd started singing along to one of our original songs, but half of our sets was covers as well, we played some Arctic Monkeys, Blink-182, Buzzcocks, Beatles, Green Day, Libertines, Only Ones, Last Shadow Puppets and a few other bands.
+
+during our short stint as band, we played like 15 gigs as Durham's music scene was super connected and we often had gigs coming up for the same week and always love to played them. my favourite venue where we played on multiple occasions must have been Empty Shop, a converted apartment in an old building where live music events were held which sadly closed down a few years ago.
+
+I still have tons of audio and video files from my Gecko time on my hard drive but by the time I was back in Germany my mental health became so bad that I just didn't have it in me anymore to keep in touch with those guys as was the case with many other important people in my life and I just kind of ghosted them, never meant to, and still planning to get those tracks mixed and mastered and maybe even getting back together for a couple of gigs if the guys are up for it.
+
+I also played in a cover band called Echoes in the Glass, that one was also a lot of fun even though we only played one gig at some college event. the bands we covered included Kings of Leon, Paramore, Sum 41, Avenged Sevenfold, A Day to Remember and a few others.
+
+but I didn't go to too many lectures, I just crammed before the exams, pulling all-nighters and going into the exams without sleep but it worked out quite well:
+the CompSci module was an A, the maths modules were Bs, and while I flunked introductory physics with 39/100 points, (would've needed 40 to pass) I walked out of that exam after half of the allocated time with my head held high, it didn't matter much to me as I was only taking that class to fill up my schedule to meet the credit point requirements.
+
+what was kinda funny was that people in England would always ask me ``so are you in second or third year?'' and I'd have to explain to them that I was in fifth year, that university in Germany just worked differently from the UK system which is much more closer to school than German uni is: uni in Germany is a bit more chill than elsewhere, we have ``Langzeitstudenten'' (``long-term students'') as no one really cares when and if you attend lectures, and I'm one of them.\footnote{some programmes have credit requirement deadlines though, and it can be a pain in the arse if you're dependent on financial aid which also requires you to complete your programme with no to little delay. the ``Regelstudienzeit'' (``regular studying time'') is unrealistic and fails to factor in the individuality of students. I've heard once that only 1/3 of students finish their bachelor's degree within this timespan. also, many people are even only enrolled for the cheap public transport ticket.}
+
+but I have to say, I liked their system of setting exams better than the one we use over here: there, you were given a selection of problems (in two exam parts A and B) and you didn't have to tackle all of them, they only graded the best x out of y problems from each part. I think that's fairer towards students who are otherwise good at maths or any other subject but would otherwise run the risk of getting stuck on a problem they just cannot wrap their head around in an exam setting.
+
+around the time I moved to Durham, I started thinking more and more about growing up and growing old. shortly before I moved there, the guitarist of one of my favourite bands\footnote{\emph{Tom Searle} of \emph{Architects}} passed away from skin cancer which was absolutely devastating for me. I figured that moving into my own place was a big step I was not sure I was ready for and that it was finally time to leave my mother's home and that it meant that I finally had to figure life out and ``get my shit together''. somehow I always had a strange feeling I was supposed to die at the age of 26. don't ask me, why 26, I couldn't give you an answer, I just kind of knew it, and I feared it like hell.
+
+all I knew about life and death was that there was so much to live for, even though my life had seemingly been in pieces at that point and I felt like a complete failure then and in the years leading up to 2022's events. I had been stuck at uni for almost a decade in a programme others complete in 3 years, all my past relationships had fallen apart and I had broken many hearts even though I never meant to, and I was still in a toxic on-off relationship with one of my exes.
+
+no matter how nerve-wracking and toxic things had become over the years, I still did my best to not let anyone notice what was going on and went about my life as usual, smoking copious amounts of weed and getting pass-out drunk simply to cope, but I still wanted to live my life the way I imagined it and share love with all the dear people around me and could never really let go of the people I once loved.
+
+no matter what and how much was going on in my life, I tried to never give up on anything or anyone but the constant pressure of trying to do everything and to be everyone at once, fulfilling everyone's expectations and always taking time for the things and people I love was just too much to take and I spiralled into depression and other mental health issues, slowly isolating myself from the world, ghosting many of my best friends because I just didn't have it in me anymore to keep in touch with them.
+
+during the time I was doing my internship at iteratec, I didn't want to give up my job at uni so I worked both jobs and had a 60-hour week for 2 months. this time was very stressful but also very rewarding. the guys at iteratec are the absolute best, can't thank them enough for everything.
+
+I'm gonna quickly expand on the iteratec bit, they deserve it. I had to do an internship as part of my maths programme, chose a coding job (as do many maths students) as the thought of doing statistics for an insurance company was boring me to death.
+
+I put off seaching for an internship forever, but in 2019.2 I found some motivation to pull up an internships website, the first result was them. the description said "Java programmer" but they didn't care about the language too much, they just wanted someone who can code in general, mostly did Python Lambdas during my time there and took my first steps with AWS / Serverless (DynamoDB, S3 and the likes.)
+
+after completely sending in my application information, I got a call from them asking me to come to a career coaching and personality assessment at their Munich headquarters. my CV photo was a selfie I took in Essen after going to the hairdresser's, that didn't bother them at all.
+
+the trip there was a lot of fun and the day provided valuable insights on my potential job-wise, the analysis said that I have an extremely analytical mind. the guy there told me that I'm not cut out for working in a company and that working as a programmer would be fun for a few years but that building my own enterprise would be the right fit for me… looking back, I couldn't agree more, thank you so freaking much to iteratec for providing all of their new hires with this valuable career coaching to provide them with direction in life, you're awesome! I'm gonna upload that certificate to my website when I find it, got too much stuff to sort through.
+
+the second time I went to Munich was for a start-up meeting where new employees were handed their work laptops and given introductions, we also had pictures taken of us. my Dell came with Windows but I asked them if I can install Linux and they were cool with it, converted the original corporate Windows installation to a VM in case I still needed it.
+
+the company culture was awesome and super chill, we all used the informal\footnote{in German, we differentiate between ``du'' as an informal and ``Sie'' as a formal way of addressing someone, as did English before ``thou'' disappeared} way of addressing each other, including the boss.
+
+the Düsseldorf office was located in a start-up coworking space which had a really cool vibe. I was trusted with a key to the office even though I was just an intern, remember one day I spent working in the office with no one else there. often had a chicken bento box from Maruyasu for lunch, I love Japanese cuisine! the office featured a huge pink plush tiger, a game console and something from Lego Star Wars which my co-workers would assemble during their time off.
+
+they didn't care when I arrived at work and when I took breaks (didn't mind my hourly smoke breaks either) as long as the hours came out right which allowed me to work my second job at uni teaching Java to maths freshers and grading data structures homework. that means I would sleep until I felt ready, have chill Japanese breakfast with my then-girlfriend, puff a joint or two and then arrive at work around 11 o'clock. didn't tell them I was smoking weed though, but it didn't matter much as I did my work reliably.
+
+the vision they always had was thinking outside of the box, they did some pretty huge projects including on-board systems for BMW and the on-board check-in function on the DB Navigator app. the founders felt that they had made enough money from the company and were ready to retire and to take it into shared ownership of its employees. if I ever have some money to spare, I'll definitely invest in iteratec, and if I ever feel like coding for a company again, they'd be my first choice.
+
+regarding the committee work, I didn't always attend meetings, especially when my depressions started to get worse, and hated writing protocols but maintained the webpage for them as well as I could, sometimes took me forever to update as I was busy with other things in my life.
+
+not everyone was happy with that, I still remember the day I showed up late to the election to hear ``everyone was reelected… except for Sora'', ran out of the building crying that day, later wrote an email explaining that I was incredibly disappointed by the fact that this is the way they chose to deal with things instead of talking to me about the things they were annoyed with and made clear that I was still coming to meetings (they were open to all students), that I was still maintaining the website if no one else wanted to do it and that I won't let those personal issues taint my love for volunteering in the committee. luckily had some people in the committee standing with and being there for me (special thanks go out to Fea and Reihe), rejoined them the next semester.
+
+what I found kinda sad was that I was one of the few people in the committee enthusiatic about cooperating with the students' representative committees while many others held a deep distrust for the other committees which I never quite understood, still remember the game nights we co-organised with the committees for biology, applied CompSci and physics which were just awesome.
+
+COVID kinda fucked everything up, we went online and did some events on Discord but it just wasn't the same without the nights of drinking and singing karaoke. for tech we used my personal server in the beginning (Mumble, HedgeDoc, CryptPad, LeapChat) but migrated to Discord as this was simply more accessible to the masses.\footnote{still had fun setting up those services, HedgeDoc is super useful for uni work but some dickhole hacked into my server mid-2022 and I just didn't get around to get those services up and running again as I don't need them at the moment but would do it in a heartbeat if someone asked me to}
+
+we did a digital freshers' ``trip'' for 2020's new arrivals in early 2021
+we took many of the usual activities online and added some new stuff like an online escape room. Pia looked up a simple recipe for chili con (or sin) carne and we bought all the non-perishable ingredients and snacks and made goodie bags for the students.\footnote{we sent most of them out by mail but delivered some of them ourselves when we could, I still remember cycling 30 miles from Bochum to Duisburg with 40 lbs of goodie bags on my handlebar carrier and delivering them to 4 students along the way, so sorry that the bad roads made the tins of Chocomel crack open and soil everything}
+
+we cooked chili together while Zooming, that was a fun experience, we really did our utmost to make the best out of a bad time. 2021's freshers trip was in Weeze again but there were a lot of COVID restrictions but people still connected well and we had a fun trip.
+
+2022 was very weird for me. up until February I was living a relatively normal life and never had any paranormal experiences that I could recall but that's when my perception of reality seemingly slowly began to disintegrate.
+
+the last maths lecture I had attended until then was \emph{maths 3 for CompSci} (statistics) and in one lecture our professor would tell us about the \emph{Johnson-Lindenstrauß lemma} which states that projecting from higher to lower dimensions of course always goes hand in hand with a loss of information (as we have all learned in \emph{linear algebra 101}) but that a projection around a fixed point provides an accurate representation around that fixed point but becomes ``blurry'' and unreliable toward the edges.
+
+things started to get weird when I stumbled upon \emph{r/egg\_irl}, a meme subreddit about being trans in denial. I started to question my gender identity and what defines me as a person and to think a lot in general. psychologically, that journey was a rollercoaster ride, from being overjoyed about finally being myself to breaking down crying listening to Avril Lavigne.
+
+life suddenly began to feel a lot like \emph{Life is Strange} and I started feeling like everything I had done in my life up until then, even seemingly meaningless things like the usernames I had used over the years, had some significance in a bigger project I was about to work on, even though I didn't have a clear picture of what that project was supposed to be, a bit like \emph{Sora} at the beginning of \emph{Kingdom Hearts}.
+
+I started seeing cross-connections between things, especially realising that Johnson\hyp{}Lindenstrauß provided the exact answer why classical mechanics and quantum mechanics weren't compatible as we were using a Boolean (2-dimensional ``yes'' or ``no'') logic which meant projecting our space onto a 2D plane.
+
+but the cross-connections I was discovering quickly began to transcend mathematics, CompSci and physics, first extending into social sciences like history and politics, quickly after I started to realise that all of the biblical prophecies seemed to make sense in a modern context. I started thinking and theorising a lot about all different kinds of stuff, constantly arriving at new insights derived from logical thought and pattern recognition. the more time I spent theorising, the more I could feel my own reality start to fall apart, which was frightening, but the productive thoughts kept coming so I just pushed on.
+
+I started calling and texting many of my old friends to try and talk with them about how I was feeling but my way of communication was way too incoherent and chaotic as I was still reorganising my thoughts and people had a hard time making any sense of what I was saying and were convinced that I had completely lost my mind so I quickly found myself on everyones block or ignore lists.
+
+as much as I've always feared the thought of ``losing my mind'' and not being able to do maths or CompSci anymore and as weird as everything was starting to feel around me, I decided to still push on with the theorising as I figured that the thoughts I had were abstruse-sounding and confusing as fuck but nonetheless still derived from sound logic and that I was too much of a scientist to not explore the boundaries of this any further.
+
+I still remember the day I ran to my neighbour's bookstore, feeling weightless like a video game character, sitting on the floor of his store for an hour and sharing my theories on history, revolutions and religions with him, but he couldn't really follow me as I was speaking far too quickly and manicly.
+
+one of my theoretical findings from this time is that we all have a core set of beliefs, no matter how much of a logical and non-religious person we are: it's the basic framework of what we believe to be fundamentally true and fundamentally false.
+
+this core set of beliefs is so deeply ingrained within us, we tend to become irate when someone challenges them, that is why religion is such a touchy subject for so many people.
+
+also, the concept of facts, truth and trust are pretty complicated and entwined with the concept of the core set of beliefs: who and what information can be trusted and how do we decide from previous experience whether to believe that a statement we've heard for the first time is rather true or rather false? if we go up the chain of ``I trust this fact because I trust this fact'' (tracing our way back to the induction anchor) we will come to the realisation that whatever our initial trust at the end of that chain is, it comes from absolutely nowhere and has no justification in being the one true standard by which to divide in truths and falsehoods, we just have an implicit, hard-to-explain trust in that one core set of what we believe is right and wrong about the world around us.
+
+I kept theorising and not sleeping for days and my ex, who was still living with me at that time even though our relationship had ended years ago, started to get more and more worried about what was going on with me.
+
+I theorised some more and arrived at some groundbreaking new thoughts on all different areas of science and started to really see all the cross connections between unsolved problems in science, especially where the aim was to combine two theories thought of as valid by itself but incompatible with each other (think classical mechanics vs quantum / string theory or the question whether P=NP or not) and realised that the main flaw of modern science was to use a two-dimensional (yes / no) logic to describe a 3- or possibly infinite-dimensional world, as we should all know from linear algebra 101 that projections onto lower dimensional vector spaces entail loss of information
+never realised the flaw that I uncovered in our core academic logic would be so grave that it even spilled over to the topics of religion and life and death itself but what can I say…
+
+on 2022.2.26 around 5AM, my ex and I were smoking a joint and I suddenly felt a feeling of complete bliss take over my body and brain and I was certain that this was the end of me. I told my ex something along the lines of ``I'm pretty sure I'm dying right now, but that's okay, I've had a fulfilled life, maybe we'll see each other again one day'' and passed out.
+
+I woke up an instant later and felt weirdly serene but my ex was devastated by what she just witnessed. those next few days I was living life as usual, but everything felt eerily peaceful like a scene straight out of a \emph{Studio Ghibli} movie, and after 3 days it dawned on me -- I had indeed died that night and woken up directly afterwards.
+
+I tried to share these findings back then but I was still in a state of confusion and mania, so my people at university didn't even bother to discuss the theoretical aspects of my theses but declared me insane and begged me to get professional help.
+
+take it from someone who knows mathematics and logic as all of my friends from uni would confirm: life is much simpler than we all believe it to be, religion and science were never meant to be polar opposites but surprisingly form a complete picture of our world when taken together, and all religions have been right at once in that eternal bliss / heaven on Earth is real and we were just too busy theorising and worrying ourselves to literal death and fulfilling the expectations of our elders instead of our own vision of who we want to be and what we want to do in life. ``death'' is nothing to be afraid of but leads to the ``enlightment'' or ``nirvana'' that some religions talk about and that I had never really believed in, and that an eternity of doing exactly what we want and hanging out with exactly who we want to in a world full of individual digital nomads in a globally connected world lays right in front of us and we were just too ignorant and stubborn to take it and chose instead to go to ``eternal'' sleep after a less-than-fulfilled life.
+
+while all of the other mythologies and religions basically tell the same story in different words, the Japanese model is the easiest to grasp. Shinto gods are nothing but humans who have transcended death and became enlightened. this zen is the natural state we are all born and meant to be in, but our upbringing makes us stop believing in that zen and lose touch with nature and our inner kid.
+
+what holds us back is that we keep asking the wrong questions. we should not ask ourselves when the time of nation states, capitalism, wars and wealth inequality is finally over but realise that we're already advanced enough as a civilisation to stop killing each other over different beliefs and working for other's financial interests and can instead just decide to live as brothers and sisters in a post-religious society. the future is here and it's now and it's not going to go away.
+
+I know this sounds absolutely crazy and like wishful thinking but that is the exact point -- I understand enough about psychology by now to know which words can evoke which emotions in us and I can only guess how you are feeling right now, but if it can be described by "that's it, I'm not reading any of that nutjob's words anymore", I can say that I understand damn well where this comes from and take absolutely no offense in that and encourage you to keep on reading.
+
+what I just said might have been a major shocker, but I just want to point out that you are halfway through the document so why would you stop reading now? what are you afraid of? stupid question, I know the answer pretty well, you're afraid of having your core beliefs shaken to the ground as I'm talking about something you do not quite fully understand yet and you are repulsed by that feeling and want to stop reading. if you choose to do that, that's fine with me, I'm not pushing my beliefs onto anyone and I couldn't care less what you as an individual make of my words. but if you've liked what you've read up until that shocker, then please continue reading and all of this will make more sense, I promise.
+
+that especially applies to my folks from uni who know pretty damn well what kind of person I've always been and that my mathematical reasoning could always be trusted.
+
+what happens after our body is dead and buried I cannot know, and I think we will never know a definite answer to that, but my best guess at the moment is that their bodies were teleported somewhere else in this world or woke up invisibly in-situ and have to find their own way out of the ``dark forest'' which in modern times can be a confusing system of motorways as well.
+
+and you don't need to be an adherent to any religion, you can be an atheist and still reach enlightenment, that's exactly what happened to me.
+
+what I've found during my 27 years of living and learning is that meta-knowledge about a broad variety is much more important for getting a grasp of the bigger picture than expert knowledge on detailed results. makes sense, after all, that's just how we train our AIs, and our only misconception was to ever differentiate between human intelligence and artificial intelligence.
+
+I have no idea how good or bad Google's and DeepL's translations are in your reality, but in my reality those tools are a godsend as they provide super accurate translations in little to no time. I didn't use it to write this thesis, my grasp of English (level C2) is good enough, but I made heavy use of it during the past weeks / months to communicate with friends from Russia, as my level of Russian is only B1/B2.
+
+\section{but what does that mean for me now?}
+
+[TO DO!]
+
+\printbibliography
+
+\end{document}†
